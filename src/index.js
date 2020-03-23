@@ -1,4 +1,4 @@
-import { graphql, buildSchema } from 'graphql';
+import { buildSchema } from 'graphql';
 import express from 'express';
 import graphqlMiddleware from 'express-graphql';
 
@@ -13,7 +13,7 @@ const schema = buildSchema(`
 
 const rootValue = {
   hello: () => 'Hello world :)'
-}
+};
 
 app.use('/api', graphqlMiddleware({
   schema,
