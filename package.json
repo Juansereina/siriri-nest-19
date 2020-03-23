@@ -4,7 +4,7 @@
   "description": "Siri backend",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Juansereina/siriri-nest-19/issues"
   },
-  "homepage": "https://github.com/Juansereina/siriri-nest-19#readme"
+  "homepage": "https://github.com/Juansereina/siriri-nest-19#readme",
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
 }
