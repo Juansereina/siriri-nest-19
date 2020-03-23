@@ -1,1 +1,5 @@
-console.log('Hello world');
+const initApp = () => {
+  console.log('hellow world');
+}
+
+export default initApp;
