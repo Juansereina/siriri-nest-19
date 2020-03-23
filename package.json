@@ -2,10 +2,10 @@
   "name": "siriri-nest-19",
   "version": "1.0.0",
   "description": "Siri backend",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "dev": "npx babel-node index"
+    "dev": "nodemon --exec babel-node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,11 @@
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.0",
     "babel-jest": "^25.1.0",
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "@babel/cli": "^7.8.4",
     "graphql": "^14.6.0"
   }
 }
