@@ -6,4 +6,8 @@ const schema = buildSchema(`
   }
 `);
 
-graphql(schema, '{ hello }').then(console.log);
+const resolvers = {
+  hello: () => 'Hello world :)'
+}
+
+graphql(schema, '{ hello }', resolvers).then(console.log);
