@@ -1,0 +1,19 @@
+{
+  "name": "siriri-nest-19",
+  "version": "1.0.0",
+  "description": "Siri backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juansereina/siriri-nest-19.git"
+  },
+  "author": "Juansereina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juansereina/siriri-nest-19/issues"
+  },
+  "homepage": "https://github.com/Juansereina/siriri-nest-19#readme"
+}
