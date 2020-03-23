@@ -4,7 +4,8 @@
   "description": "Siri backend",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "npx babel-node index"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,12 @@
   "homepage": "https://github.com/Juansereina/siriri-nest-19#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.0",
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0"
+  },
+  "dependencies": {
+    "graphql": "^14.6.0"
   }
 }
