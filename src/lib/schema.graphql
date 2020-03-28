@@ -5,6 +5,16 @@ type Query {
   getGuest(id: ID!): Guest
 }
 
+type GuestInput {
+  name: String!
+  state: String!
+}
+
+type Mutation {
+  "Creates a new guest"
+  createGuest: String
+}
+
 type Guest {
   _id: ID!
   name: String!
