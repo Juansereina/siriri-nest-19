@@ -1,7 +1,7 @@
 import { buildSchema } from 'graphql';
 import express from 'express';
 import graphqlMiddleware from 'express-graphql';
-import { Client } from 'pg';
+import db from './db';
 
 require('dotenv').config();
 
@@ -23,13 +23,6 @@ app.use('/api', graphqlMiddleware({
   rootValue,
   graphiql: true
 }));
-
-const db = async () => {
-  const client = new Client();
-  await client.connect();
-  const { rows } = await client.query('SELECT * FROM siriri');
-  console.log(rows);
-};
 
 app.listen(port, async () => {
   await db();
