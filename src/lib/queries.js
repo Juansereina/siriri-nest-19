@@ -13,8 +13,8 @@ const guests = [
     _id: '125',
     name: 'My name 3',
     state: 'All right'
-  },
-]
+  }
+];
 
 export default {
   getGuests: () => guests,
@@ -23,4 +23,4 @@ export default {
 
     return guest.pop();
   }
-}
+};
