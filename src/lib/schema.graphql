@@ -1,0 +1,12 @@
+type Query {
+  "Returns all the guest"
+  getGuests: [Guest]
+  "Returns a guest"
+  getGuest(id: ID!): Guest
+}
+
+type Guest {
+  _id: ID!
+  name: String!
+  state: String!
+}

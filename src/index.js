@@ -1,23 +1,23 @@
-import { buildSchema } from 'graphql';
+import { makeExecutableSchema } from 'graphql-tools';
 import express from 'express';
 import graphqlMiddleware from 'express-graphql';
+import { readFileSync } from 'fs';
+import { join } from 'path';
+import resolvers from './lib/resolvers'
 
 const app = express();
 const port = process.env.port || 3000;
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+const typeDefs =   readFileSync(
+  join(__dirname, 'lib', 'schema.graphql'),
+  'utf-8'
+)
 
-const rootValue = {
-  hello: () => 'Hello world :)'
-};
+const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 app.use('/api', graphqlMiddleware({
   schema,
-  rootValue,
+  rootValue: resolvers,
   graphiql: true
 }));
 
