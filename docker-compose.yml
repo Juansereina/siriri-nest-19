@@ -3,6 +3,7 @@ version: "3"
 services:
   app: # services name
     build: . # Build the current dir
+    command: npm run dev
     environment:
       NAME: name # Env variable example
     depends_on:
