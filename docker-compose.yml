@@ -6,7 +6,11 @@ services:
     command: npm run dev
     container_name: app
     environment:
-      NAME: name # Env variable example
+      PGHOST: db
+      PGUSER: ${PGUSER}
+      PGDATABASE: ${PGDATABASE}
+      PGPASSWORD: ${PGPASSWORD}
+      PGPORT: ${POSTGRES_PORT}
     depends_on:
       - db
     ports:
@@ -21,7 +25,7 @@ services:
     environment:
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
     ports:
-      - ${PORT}:5432
+      - ${PORT}:${POSTGRES_PORT}
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
   pgadmin:
