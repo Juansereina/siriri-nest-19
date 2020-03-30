@@ -1,26 +1,14 @@
-const guests = [
-  {
-    _id: '12',
-    name: 'My name',
-    state: 'All right'
-  },
-  {
-    _id: '124',
-    name: 'My name 2',
-    state: 'All right'
-  },
-  {
-    _id: '125',
-    name: 'My name 3',
-    state: 'All right'
-  }
-];
+import query from '../db';
 
 export default {
-  getGuests: () => guests,
-  getGuest: (root, args) => {
-    const guest = guests.filter(g => g._id === args.id);
-
-    return guest.pop();
+  getGuests: () => [],
+  getGuest: async (root, args) => {
+    try {
+      const { rows } = await query('SELECT * FROM guest');
+      const [result] = rows;
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
   }
 };

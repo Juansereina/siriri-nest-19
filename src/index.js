@@ -3,7 +3,6 @@ import express from 'express';
 import graphqlMiddleware from 'express-graphql';
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import db from './db';
 import resolvers from './lib/resolvers';
 
 require('dotenv').config();
@@ -25,7 +24,5 @@ app.use('/api', graphqlMiddleware({
 }));
 
 app.listen(port, async () => {
-  await db();
-
   console.log(`Serve running at http://localhost:${port}/api`);
 });
