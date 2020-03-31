@@ -1,12 +1,20 @@
-import query from '../db';
+import { query } from './db';
 
 export default {
-  getGuests: () => [],
-  getGuest: async (root, args) => {
+  getGuest: async (root, { id }) => {
+    try {
+      const { rows } = await query('SELECT * FROM guest WHERE id=$1', [id]);
+      const [guest] = rows;
+
+      return guest;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  getGuests: async () => {
     try {
       const { rows } = await query('SELECT * FROM guest');
-      const [result] = rows;
-      return result;
+      return rows;
     } catch (error) {
       console.log(error);
     }
