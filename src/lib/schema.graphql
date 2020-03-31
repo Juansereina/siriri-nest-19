@@ -7,11 +7,16 @@ type Query {
 
 type Mutation {
   "Creates a new guest"
-  createGuest: String
+  createGuest(guest: GuestInput!): Guest
 }
 
 type Guest {
-  _id: ID!
+  id: ID!
   name: String!
   state: String!
+}
+
+input GuestInput {
+  name: String!
+  state: String
 }
