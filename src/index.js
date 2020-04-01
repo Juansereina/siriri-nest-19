@@ -4,6 +4,7 @@ import graphqlMiddleware from 'express-graphql';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import resolvers from './lib/resolvers';
+import cors from 'cors';
 
 require('dotenv').config();
 
@@ -16,6 +17,8 @@ const typeDefs = readFileSync(
 );
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
+
+app.use(cors());
 
 app.use('/api', graphqlMiddleware({
   schema,
