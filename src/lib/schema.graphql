@@ -13,10 +13,21 @@ type Mutation {
 type Guest {
   id: ID!
   name: String!
-  state: String!
+  state: State
 }
 
 input GuestInput {
   name: String!
-  state: String
+  state: State
+}
+
+"Emotions and feelings"
+enum State {
+  Fine
+  Ok
+  Bad
+  Good
+  Anger
+  Sad
+  Excited
 }
