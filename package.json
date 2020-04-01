@@ -4,7 +4,7 @@
   "description": "Siri backend",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=production node dist",
+    "start": "NODE_ENV=production node dist --ignore 'src/**/*.spec.js'",
     "clean": "rm -rf dist",
     "build": "npm run clean && babel src -d dist",
     "test": "npm run lint && jest",
