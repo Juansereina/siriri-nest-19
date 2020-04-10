@@ -18,6 +18,8 @@ services:
     volumes:
       - .:/usr/src # Use volumes to override the files in the container
       - /usr/src/node_modules  # Don't override the node_module in the container
+    networks: # Uses the network created in the networks options (see below)
+      - api
   db:
     image: postgres:11.7
     container_name: db
@@ -28,6 +30,8 @@ services:
       - ${PORT}:${POSTGRES_PORT}
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks: # Uses the network created in the networks options (see below)
+      - api
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
@@ -37,3 +41,8 @@ services:
     ports:
       - "5555:80"
     restart: unless-stopped
+    networks: # Uses the network created in the networks options (see below)
+      - api
+networks: # Creates a new Network to connect an external container
+  api:
+    driver: bridge
